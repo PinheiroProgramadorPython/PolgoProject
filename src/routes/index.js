@@ -5,6 +5,9 @@ import FAQ from "../views/FAQ.vue";
 import Ganhadores from "../views/Ganhadores.vue";
 import Lojas from "../views/Lojas.vue";
 import Premios from "../views/Premios.vue";
+import CriarConta from "../views/CriarConta.vue";
+import Login from "../views/Login.vue";
+
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +41,16 @@ const router = createRouter({
             path: "/premios",
             name: "premios",
             component: Premios
+        },
+        {
+            path: "/login",
+            name: "login",
+            component: Login
+        },
+        {
+            path: "/criarconta",
+            name: "criarconta",
+            component: CriarConta
         }
     ]
 });
