@@ -77,9 +77,11 @@ onUnmounted(() => {
       </ul>
       <div class="botoes">
         <a href="#cadastro" @click="closeMenu">
+          <RouterLink to="/criarConta"></RouterLink>
           <button class="btn btn-warning" type="button">Cadastre-se</button>
         </a>
         <a href="#cadastro" @click="closeMenu">
+          <RouterLink to="/login"></RouterLink>
           <button class="btn btn-warning" type="button">Login</button>
         </a>
       </div>
