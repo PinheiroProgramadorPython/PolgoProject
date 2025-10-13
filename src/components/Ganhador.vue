@@ -3,7 +3,10 @@ import { onMounted, ref } from 'vue';
 import Cadastro from './Cadastro.vue';
 import MapaGanhador from './MapaGanhador.vue';
 import apiBase from "../services/api.js";
+import { isAdmin } from "../services/auth.js";
 
+
+const admin = isAdmin();
 
 let ganhadores = ref([]);
 
@@ -146,10 +149,10 @@ function selecionar (i) {
                         <img class="img-fluid rounded" :src="ganhador.premioRelacionado.image" :alt="ganhador.premio">
                     </div>                 
                 </div>
-                <button class="btn btn-primary mt-3" @click="selecionar(i)">selecionar</button>
+                <button v-if="admin" class="btn btn-primary mt-3" @click="selecionar(i)">selecionar</button>
             </div>
         </div>
-        <form class="row g-3 my-5" @submit="cadastrar">
+        <form v-if="admin" class="row g-3 my-5" @submit="cadastrar">
             <div class="col-12">
                 <input type="text" placeholder="Nome do Ganhador" class="form-control" v-model="obj.nome">
             </div>

@@ -15,44 +15,63 @@ const router = createRouter({
         {
             path: "/",
             name: "home",
-            component: Home
+            component: Home,
+            meta: { requiresAuth: true }
         },
         {
             path: "/comoparticipar",
             name: "comoparticipar",
-            component: ComoParticipar
+            component: ComoParticipar,
+            meta: { requiresAuth: true }
         },
         {
             path: "/faq",
             name: "faq",
-            component: FAQ
+            component: FAQ,
+            meta: { requiresAuth: true }
         },
         {
             path: "/ganhadores",
             name: "ganhadores",
-            component: Ganhadores
+            component: Ganhadores,
+            meta: { requiresAuth: true }
         },
         {
             path: "/lojas",
             name: "lojas",
-            component: Lojas
+            component: Lojas,
+            meta: { requiresAuth: true }
         },
         {
             path: "/premios",
             name: "premios",
-            component: Premios
+            component: Premios,
+            meta: { requiresAuth: true }
         },
         {
             path: "/login",
             name: "login",
-            component: Login
+            component: Login,
+            meta: { requiresGuest: true }
         },
         {
             path: "/criarconta",
             name: "criarconta",
-            component: CriarConta
+            component: CriarConta,
+            meta: { requiresGuest: true }
         }
     ]
 });
+
+router.beforeEach((to, from, next) => {
+    const token = localStorage.getItem("token");
+    if (to.meta.requiresAuth && !token) {
+        next("/login")
+    } else if (to.meta.requiresGuest && token) {
+        next("/")
+    } else {
+        next()
+    }
+})
 
 export default router;

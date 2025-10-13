@@ -3,6 +3,10 @@ import { ref, onMounted } from 'vue';
 import { Carousel } from 'bootstrap';
 import Cadastro from './Cadastro.vue';
 import apiBase from "../services/api.js";
+import { isAdmin } from "../services/auth.js";
+
+
+const admin = isAdmin();
 
 
 let id = ''
@@ -185,7 +189,7 @@ function selecionar (i) {
                     />
                     <p class="text-center my-4 lead">{{ premio.description }}</p>
                     <div class="text-center mt-3">
-                    <button class="btn btn-primary mt-1" @click="selecionar(i)">Selecionar Prêmio</button>
+                    <button v-if="admin" class="btn btn-primary mt-1" @click="selecionar(i)">Selecionar Prêmio</button>
                 </div>
                 </div>           
             </div>
@@ -208,7 +212,7 @@ function selecionar (i) {
                 <span class="visually-hidden">Próximo</span>
             </button>
         </div>
-        <form class="row g-3 my-5" @submit="cadastrar" enctype="multipart/form-data">
+        <form v-if="admin" class="row g-3 my-5" @submit="cadastrar" enctype="multipart/form-data">
             <div class="col-12">
                 <input type="text" placeholder="Titulo" class="form-control" v-model="obj.title">
             </div>

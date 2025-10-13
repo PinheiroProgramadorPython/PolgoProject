@@ -28,13 +28,13 @@ onMounted( async () => {
 <template>
 <main class="mx-5 my-5">
     <div class="px-4 text-center">
-        <h1 class="display-5 fw-bold text-body-emphasis">
+        <h2 class="display-5 fw-bold text-body-emphasis">
             <font dir="auto" style="vertical-align: inherit;">
                 <font dir="auto" style="vertical-align: inherit;">
-                    Nosso Principal Objetivo
+                   Nosso Principal objetivo
                 </font>
             </font>
-        </h1>
+        </h2>
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">
                 <font dir="auto" style="vertical-align: inherit;">

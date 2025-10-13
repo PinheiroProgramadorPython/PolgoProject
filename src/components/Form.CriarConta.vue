@@ -30,29 +30,39 @@ async function cadastrar (event) {
 
 <template>
 <main class="mx-5 mt-5">
-    <form @submit="cadastrar">
-        <div>
-            <input type="text" placeholder="Nome" v-model="obj.name">
+    <div class="container text-center">
+        <h2>Crie sua Conta em nosso Site</h2>
+    </div>
+    <form class="form-control rounded-5" @submit="cadastrar">
+        <div class="container mb-3">
+            <label class="form-label">Nome</label>
+            <input class="form-control" type="text" placeholder="Nome" v-model="obj.name">
         </div>
-        <div>
-            <input type="text" placeholder="Sobrenome" v-model="obj.lastname">
+        <div class="container mb-3">
+            <label class="form-label">Sobrenome</label>
+            <input class="form-control" type="text" placeholder="Sobrenome" v-model="obj.lastname">
         </div>
-        <div>
-            <input type="email" placeholder="E-mail" v-model="obj.email">
+        <div class="container mb-3">
+            <label class="form-label">E-mail</label>
+            <input class="form-control" type="email" placeholder="E-mail" v-model="obj.email">
         </div>
-        <div>
-            <input type="tel" placeholder="WhatsApp" v-model="obj.whatsapp">
+        <div class="container mb-3">
+            <label class="form-label">WhatsApp</label>
+            <input class="form-control" type="tel" placeholder="WhatsApp" v-model="obj.whatsapp">
         </div>
-        <div>
-            <input type="password" placeholder="Senha" v-model="obj.senha">
+        <div class="container mb-3">
+            <label class="form-label">Senha</label>
+            <input class="form-control" type="password" placeholder="Senha" v-model="obj.senha">
         </div>
-        <div>
-            <input type="password" placeholder="Confirmar Senha" v-model="obj.senha">
+        <div class="container mb-3">
+            <label class="form-label">Confirme a Senha</label>
+            <input class="form-control" type="password" placeholder="Confirmar Senha" v-model="obj.senha">
         </div>
-        <div>
-            <input type="password" placeholder="Digite o Token, somente se Souber" v-model="obj.tokenAdmin">
+        <div class="container mb-3">
+            <label class="form-label">Token Secreto</label>
+            <input class="form-control" type="password" placeholder="Digite o Token, somente se Souber" v-model="obj.tokenAdmin">
         </div>
-        <div>
+        <div class="container mb-3 text-center">
             <input type="submit" value="Criar Conta" class="btn btn-primary">
         </div>
     </form>

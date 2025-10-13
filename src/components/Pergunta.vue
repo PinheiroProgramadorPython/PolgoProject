@@ -2,7 +2,10 @@
 import { onMounted, ref } from 'vue';
 import Cadastro from './Cadastro.vue';
 import apiBase from "../services/api.js";
+import { isAdmin } from "../services/auth.js";
 
+
+const admin = isAdmin();
 
 let id = ""
 
@@ -121,14 +124,14 @@ function selecionar (i) {
                 <div class="accordion-body">
                     <strong>{{ pergunta.pergunta }}</strong><br>{{ pergunta.resposta }}
                 </div>
-                <div class="text-center mt-3">
+                <div v-if="admin" class="text-center mt-3">
                     <button class="btn btn-primary mt-1" @click="selecionar(i)">Selecionar Pergunta</button>
                 </div>
             </div>
         </div>
     </div>
     
-    <form class="row g-3 my-5" @submit="cadastrar">
+    <form v-if="admin" class="row g-3 my-5" @submit="cadastrar">
         <div class="col-12">
             <input type="text" placeholder="Pergunta" class="form-control" v-model="obj.pergunta">
         </div>

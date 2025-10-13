@@ -1,7 +1,16 @@
 <script setup>
 import { Collapse } from 'bootstrap';
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { logout, token, user } from "../services/auth.js";
+import { useRouter } from "vue-router";
+import Swal from 'sweetalert2';
 
+
+const router = useRouter();
+
+const usuario = user;
+
+const usuarioLogado = computed(() => !!token.value);
 
 const navRef = ref(null);
 
@@ -9,11 +18,16 @@ const navbarCollapseRef = ref(null);
 
 let bsCollapse = null;
 
+function sair () {
+  Swal.fire("Saindo!", "Vc saiu da sua Conta!", "info");
+  logout()
+  router.push("/login");
+}
+
 onMounted(() => {
   bsCollapse = new Collapse(navbarCollapseRef.value, {toggle: false});
   document.addEventListener('mousedown', handleClickOutside);
 });
-
 
 const toggleMenu = () => {
   bsCollapse.toggle()
@@ -75,12 +89,18 @@ onUnmounted(() => {
             </a>
         </li>
       </ul>
+      <div v-if="usuarioLogado" class="container ms-5 text-warning saudacao">
+        <h1> Olá {{ usuario.name }}</h1>
+      </div>
       <div class="botoes">
-        <a @click="closeMenu">
-          <RouterLink to="/criarconta" class="btn btn-warning">Cadastre-se</RouterLink>
+        <a v-if="!usuarioLogado" @click="closeMenu">
+          <RouterLink to="/criarconta" class="btn btn-warning">Criar Conta</RouterLink>
         </a>
-        <a @click="closeMenu">
+        <a v-if="!usuarioLogado" @click="closeMenu">
           <RouterLink to="/login" class="btn btn-warning">Login</RouterLink>
+        </a>
+        <a v-if="usuarioLogado" @click="closeMenu">
+          <button class="btn btn-warning" @click="sair">Sair</button>
         </a>
       </div>
     </div>
@@ -112,6 +132,11 @@ a:hover{
 
 .btn:hover{
   transform: scale(1.1, 1.1);
+  transition: 0.5s;
+}
+
+.saudacao:hover{
+  transform: scale(1.2, 1.2);
   transition: 0.5s;
 }
 </style>

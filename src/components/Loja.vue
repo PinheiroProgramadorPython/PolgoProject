@@ -3,7 +3,10 @@ import { onMounted, ref } from 'vue';
 import Cadastro from './Cadastro.vue';
 import MapaLoja from './MapaLoja.vue';
 import apiBase from "../services/api.js";
+import { isAdmin } from "../services/auth.js";
 
+
+const admin = isAdmin();
 
 let lojas = ref([]);
 
@@ -122,10 +125,10 @@ function selecionar (i) {
                     <p class="card-text">Cidade: {{ loja.cidade }}</p>
                     <p class="card-text">Endereço: {{ loja.endereco }}</p>
                 </div>
-                <button class="btn btn-primary mt-1" @click="selecionar(i)">Selecionar Loja</button>
+                <button v-if="admin" class="btn btn-primary mt-1" @click="selecionar(i)">Selecionar Loja</button>
             </div>
         </div>
-        <form class="row g-3 my-5" @submit="cadastrar">
+        <form v-if="admin" class="row g-3 my-5" @submit="cadastrar">
             <div class="col-12">
                 <input type="text" placeholder="Nome da Loja" class="form-control" v-model="obj.nome">
             </div>

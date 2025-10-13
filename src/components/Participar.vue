@@ -2,7 +2,10 @@
 import { ref, onMounted } from 'vue';
 import Cadastro from './Cadastro.vue';
 import apiBase from "../services/api.js";
+import { isAdmin } from "../services/auth.js";
 
+
+const admin = isAdmin();
 
 let atualizarBtn = true;
 
@@ -129,14 +132,14 @@ function selecionar (i) {
                         </div>
                     </div>
                     <div class="text-center mt-3">
-                        <button class="btn btn-primary mt-1" @click="selecionar(i)">Selecionar Regra
+                        <button v-if="admin" class="btn btn-primary mt-1" @click="selecionar(i)">Selecionar Regra
                         </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <form class="row g-3 my-5" @submit="cadastrar">
+    <form v-if="admin" class="row g-3 my-5" @submit="cadastrar">
         <div class="col-12">
             <input type="text" placeholder="Regra" class="form-control" v-model="obj.title">
         </div>
