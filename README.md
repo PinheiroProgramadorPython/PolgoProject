@@ -17,36 +17,7 @@ A aplicação é uma **Landing Page interativa e responsiva** conectada ao backe
 
 ## 📂 Estrutura do Projeto
 
-PolgoProject/
-│
-├── src/
-│ ├── assets/ # Imagens e ícones
-│ ├── components/ # Componentes reutilizáveis
-│ │ ├── Header.vue
-│ │ ├── Footer.vue
-│ │ ├── Mapa.vue
-│ │ └── CardPremio.vue
-│ │
-│ ├── pages/ # Páginas principais
-│ │ ├── Home.vue
-│ │ ├── Premios.vue
-│ │ ├── Lojas.vue
-│ │ ├── Ganhadores.vue
-│ │ ├── Faq.vue
-│ │ ├── ComoParticipar.vue
-│ │ ├── Login.vue
-│ │ └── Cadastro.vue
-│ │
-│ ├── router/
-│ │ └── index.js # Configuração do Vue Router
-│ │
-│ ├── App.vue # Componente principal
-│ └── main.js # Ponto de entrada da aplicação
-│
-├── public/
-│ └── imagens locais
-│
-└── package.json
+### /PolgoProject
 
 ## ⚙️ Configuração do Projeto
 
