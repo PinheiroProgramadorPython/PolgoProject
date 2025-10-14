@@ -132,10 +132,13 @@ export default {
 </script>
 
 <template>
-<div class="my-5 mx-5 d-flex justify-content-center align-items-center">
-    <div class="me-5">
-        <button @click="mostrarMaisProxima" class="btn btn-primary">Mostrar loja mais próxima</button>
-    </div>
-    <div id="map" style="height: 30rem; width: 30rem;" class="rounded"></div>
+<div class="my-5 mx-5 d-flex justify-content-center align-items-center row">
+  <div class="text-center mb-3">
+    <h2>Mapa das Lojas Participantes</h2>
+  </div>
+  <div class="me-5 text-center">
+    <button @click="mostrarMaisProxima" class="btn btn-primary mb-3">Mostrar Loja mais próxima</button>
+  </div>  
+  <div id="map" style="height: 40rem; width: 20rem;" class="rounded col"></div>
 </div>
 </template>

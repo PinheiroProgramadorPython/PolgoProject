@@ -104,14 +104,14 @@ function selecionar (i) {
                     <p class="lead text-body-secondary">
                         Conheça as Lojas Participantes, Selecione uma Loja e Veja no mapa a Localização mais perto de Você
                     </p>
-                    <div class="d-flex gap-4">
+                    <div class="d-flex flex-wrap gap-3">
                         <div class="control"><i class="bi bi-controller me-3 fs-3 text-warning">Comprar</i></div>
                         <div class="control"><i class="bi bi-controller me-3 fs-2 text-primary">Participar</i></div>
                         <div class="control"><i class="bi bi-controller me-3 fs-1 text-success">Ganhar</i></div>
                     </div>
                 </div>
             </div>
-            <div class="control">          
+            <div class="control mt-3">          
                 <a href="#cadastro">
                     <button class="btn btn-primary">Cadastre-se Agora</button>
                 </a>        
@@ -120,10 +120,11 @@ function selecionar (i) {
         <div class="row">
             <div class="col-12 col-sm-6 col-md-4 col-lg-3" v-for="(loja, i) in lojas">
                 <div class="card p-3 mt-4">
-                    <h2 class="card-title">{{ loja.nome }}</h2>
+                    <h2 class="card-title text-warning">{{ loja.nome }}</h2>
                     <p class="card-text">Estado: {{ loja.estado }}</p>
                     <p class="card-text">Cidade: {{ loja.cidade }}</p>
                     <p class="card-text">Endereço: {{ loja.endereco }}</p>
+                    <p><i class="bi bi-shop text-warning fs-1"></i></p>
                 </div>
                 <button v-if="admin" class="btn btn-primary mt-1" @click="selecionar(i)">Selecionar Loja</button>
             </div>

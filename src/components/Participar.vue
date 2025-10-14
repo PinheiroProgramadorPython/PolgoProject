@@ -100,14 +100,14 @@ function selecionar (i) {
                 <p class="lead text-body-secondary">
                     Conheça todas as Regras e Seja Vc o Proximo Ganhador
                 </p>
-                <div class="d-flex gap-4">                 
+                <div class="d-flex flex-wrap gap-3">                 
                     <div class="control"><i class="bi bi-controller me-3 fs-3 text-warning">Comprar</i></div>
                     <div class="control"><i class="bi bi-controller me-3 fs-2 text-primary">Participar</i></div>
                     <div class="control"><i class="bi bi-controller me-3 fs-1 text-success">Ganhar</i></div>
                 </div>
             </div>
         </div>
-        <div class="control">          
+        <div class="control mt-3">          
             <a href="#cadastro">
                 <button class="btn btn-primary">Cadastre-se Agora</button>
             </a>        
