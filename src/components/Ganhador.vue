@@ -172,8 +172,12 @@ function selecionar (i) {
             </div>
         </form>
     </main>
-    <MapaGanhador></MapaGanhador>
-    <Cadastro></Cadastro>
+    <div>
+        <MapaGanhador></MapaGanhador>
+    </div>
+    <div>
+        <Cadastro></Cadastro>
+    </div>
 </template>
 
 <style scoped>

@@ -87,14 +87,13 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section class="d-flex mx-5 mb-5">
-    <div>
-      <h2 class="text-center mb-3">Mapa dos Ganhadores por Estado</h2>
-      <div id="map" style="height: 50rem; width: 40rem;" class="rounded"></div>
+  <section class="row mx-5 mb-5">
+    <div class="me-3">
+      <h2>Mapa dos Ganhadores por Estado</h2>
     </div>
-
-    <div class="container mt-4 text-center">
-      <h4>Totalizadores por Estado</h4>
+    <div id="map" style="height: 50rem; width: 40rem;" class="rounded text-center mt-5 pt-5"></div>
+    <div class="text-center col">
+      <h4 class="my-4">Totalizadores por Estado</h4>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3">
         <div
           v-for="(info, uf) in totalPorEstado"
