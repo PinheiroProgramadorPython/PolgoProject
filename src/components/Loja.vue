@@ -104,7 +104,7 @@ function selecionar (i) {
                     <p class="lead text-body-secondary">
                         Conheça as Lojas Participantes, Selecione uma Loja e Veja no mapa a Localização mais perto de Você
                     </p>
-                    <div class="d-flex flex-wrap gap-3">
+                    <div class="d-flex flex-wrap gap-3 flex-md-nowrap">
                         <div class="control"><i class="bi bi-controller me-3 fs-3 text-warning">Comprar</i></div>
                         <div class="control"><i class="bi bi-controller me-3 fs-2 text-primary">Participar</i></div>
                         <div class="control"><i class="bi bi-controller me-3 fs-1 text-success">Ganhar</i></div>
