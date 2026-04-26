@@ -31,3 +31,5 @@ npm run dev
 http://localhost:5173
 
 <a href="https://polgoproject.netlify.app/">Acesse a Aplicação</a>
+### Usuario: testando123@gmail.com
+### Senha: teste123
